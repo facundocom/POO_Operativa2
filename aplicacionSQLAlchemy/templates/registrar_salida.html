@@ -1,0 +1,18 @@
+{% extends "base_template.html" %}
+
+{% block title %}Registrar Salida{% endblock %}
+
+    {% block content %}
+        <h1>Registrar Salida</h1>
+        <hr/>
+        <form action="{{ request.path }}" method="POST" class="container">
+            
+            <label for="legajo">LEGAJO</label><br>
+            <input type="text" name="legajo" placeholder="Ingrese su legajo" required/><br>
+
+            <label for="dni">DNI</label><br>
+            <input type="text" name="dni" placeholder="Ingrese las ultimas 4 cifras de su DNI" required/><br>
+
+            <button type="submit">Registrar Salida</button>
+        </form>
+    {% endblock %}

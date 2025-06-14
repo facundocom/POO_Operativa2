@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <title>APLICACION PRACTICA OPERATIVA 2 FACUNDO CORIA E009-108</title>
+</head>
+
+<body>
+    <h1>APLICACION PRACTICA OPERATIVA 2 FACUNDO CORIA E009-108</h1>
+    <div class = "lista" >
+    <ul>
+        <li> <a href = "{{ url_for('registrarentrada') }}"> REGISTRAR ENTRADA </a></li><br>
+        <li> <a href = "{{ url_for('registrarsalida') }}"> REGISTRAR SALIDA </a></li><br>
+        <li> <a href = "{{ url_for('consultar') }}"> CONSULTAR </a></li><br>
+    </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+
+{% extends "base_template.html" %}
+{% block title %}Registrar Entrada{% endblock %}
+
+    {% block content %}
+        <h1>Registrar Entrada</h1>
+        <hr/>
+        <form action="{{ request.path }}" method="POST" class="container">
+
+            <label for="legajo">LEGAJO</label><br>
+            <input type="text" name="legajo" placeholder="Ingrese su legajo" required/><br>
+
+            <label for="dni">DNI</label><br>
+            <input type="text" name="dni" placeholder="Ingrese las ultimas 4 cifras de su DNI" required/><br>
+
+            <label for="dependencia">ELEGIR UNA DEPENDENCIA</label>
+            <select name="dependencia" id="dependencia">
+                <option value="">Selecione una dependencia</option>
+                <option value="D01">EDIFICIO CENTRAL</option>
+                <option value="D02">TALLERES</option>
+                <option value="D03">CENTRO DEPORTIVO</option>
+            </select><br>
+
+            <button type="submit">Registrar Entrada</button>
+        </form>
+    {% endblock %}

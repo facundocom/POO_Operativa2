@@ -1,0 +1,48 @@
+{% extends "base_template.html" %}
+
+{% block title %}Consultar Datos{% endblock %}
+
+    {% block content %}
+        {% set dependencias_nombres = {
+            "D01": "EDIFICIO CENTRAL",
+            "D02": "TALLERES",
+            "D03": "CENTRO DEPORTIVO"
+        } %}
+        
+        <h1>Consultar Datos</h1>
+        <hr/>
+        <form action="{{ request.path }}" method="POST" class="container">
+            <label for="legajo">LEGAJO</label><br>
+            <input type="text" name="legajo" placeholder="Ingrese su legajo" required/><br>
+
+            <label for="dni">DNI</label><br>
+            <input type="text" name="dni" placeholder="Ingrese las ultimas 4 cifras de su DNI" required/><br>
+
+            <label for="fecha_inicio">Fecha Inicio</label><br>
+            <input type="date" name="fecha_inicio" required/><br>
+
+            <label for="fecha_fin">Fecha Fin</label><br>
+            <input type="date" name="fecha_fin" required/><br>
+
+            <button type="submit">Consultar</button>
+        </form>
+
+            {% if registros %}
+                <table>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora Entrada</th>
+                        <th>Hora Salida</th>
+                        <th>Dependencia</th>
+                    </tr>
+                    {% for registro in registros %}
+                    <tr>
+                        <td>{{ registro.fecha }}</td>
+                        <td>{{ registro.horaentrada }}</td>
+                        <td>{{ registro.horasalida }}</td>
+                        <td>{{ dependencias_nombres[registro.dependencia] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+    {% endblock %}

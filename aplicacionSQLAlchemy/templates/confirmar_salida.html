@@ -1,0 +1,24 @@
+{% extends "base_template.html" %}
+{% block title %}Registrar Salida{% endblock %}
+
+    {% block content %}
+    <h1>¿Confirmar salida?</h1>
+        {% set dependencias_nombres = {
+        "D01": "EDIFICIO CENTRAL",
+        "D02": "TALLERES",
+        "D03": "CENTRO DEPORTIVO"
+    } %}
+
+    <div class="centrado">
+
+    <p>Dependencia: <strong>{{ dependencias_nombres[dependencia] }}</strong></p>
+    <form method="post">
+        <input type="hidden" name="registro_id" value="{{ registro_id }}">
+        <input type="hidden" name="legajo" value="{{ legajo }}">
+        <input type="hidden" name="dni" value="{{ dni }}">
+        <button type="submit" name="confirmar" value="1">Confirmar salida</button>
+        <p><a href="{{ url_for('registrarsalida') }}">Dependencia incorrecta, volver atrás</a></p>
+        
+    </div>
+    </form>
+    {% endblock %}
