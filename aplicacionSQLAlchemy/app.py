@@ -67,10 +67,10 @@ def registrarsalida():
             
             if not registro:
                 return render_template('error.html', error="Registro no encontrado.")
-
-            registro.horasalida = datetime.now().time()
-            db.session.commit()
-            return render_template('aviso.html', mensaje="¡Salida registrada exitosamente! Nos vemos pronto :)")
+            else:
+                registro.horasalida = datetime.now().time()
+                db.session.commit()
+                return render_template('aviso.html', mensaje="¡Salida registrada exitosamente! Nos vemos pronto :)")
         else: 
             legajo = request.form.get('legajo')
             dni = request.form.get('dni')
@@ -112,8 +112,8 @@ def consultar():
         trabajador = Trabajador.query.filter_by(legajo=legajo).first()
         if trabajador is None:
             return render_template('error.html', error="Trabajador no encontrado, ingrese un legajo válido.")
-        
         else:
+            
             if (trabajador.dni)[-4:] != dni:
                 return render_template('error.html', error="DNI incorrecto, ingrese un DNI válido.")
             else:    
